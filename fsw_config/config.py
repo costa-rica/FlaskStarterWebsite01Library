@@ -47,12 +47,12 @@ class ConfigBasic():
         self.BLS_API_URL = config_json_dict.get('BLS_API_URL')
 
         # Auxiliary and directories
-        self.DB_AUXILIARY = os.environ.get('DB_AUXILIARY')
-        self.DIR_LOGS = os.path.join(self.DB_AUXILIARY,"logs")
-        self.WEBSITE_FILES = os.path.join(self.DB_AUXILIARY,"website_files")
+        self.PROJECT_RESOURCES = os.environ.get('PROJECT_RESOURCES')
+        self.DIR_LOGS = os.path.join(self.PROJECT_RESOURCES,"logs")
+        self.WEBSITE_FILES = os.path.join(self.PROJECT_RESOURCES,"website_files")
         self.DIR_WEBSITE_IMAGES = os.path.join(self.WEBSITE_FILES,"website_images")
         self.DIR_WEBSITE_VIDEOS = os.path.join(self.WEBSITE_FILES,"website_videos")
-        self.DATABASE_HELPERS = os.path.join(self.DB_AUXILIARY,"database_helpers")
+        self.DATABASE_HELPERS = os.path.join(self.PROJECT_RESOURCES,"database_helpers")
         self.DB_UPLOAD = os.path.join(self.DATABASE_HELPERS,"db_upload")
 
         #Captcha

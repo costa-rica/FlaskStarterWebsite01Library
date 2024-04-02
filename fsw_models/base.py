@@ -4,4 +4,4 @@ from .config import config
 
 Base = declarative_base()
 engine = create_engine(config.MYSQL_DB_URI)
-Session = sessionmaker(bind = engine)
+DatabaseSession = sessionmaker(bind = engine)

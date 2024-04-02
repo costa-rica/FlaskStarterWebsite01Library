@@ -1,6 +1,6 @@
 print("- in models_users.py")
 from .base import Base
-from sqlalchemy.orm import sessionmaker, Session, relationship
+from sqlalchemy.orm import sessionmaker, relationship
 from sqlalchemy import Column, Integer, String, Text, Float, DateTime, ForeignKey, \
     Date, Boolean, Table
 from itsdangerous.url_safe import URLSafeTimedSerializer
