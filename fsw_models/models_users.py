@@ -1,5 +1,5 @@
 print("- in models_users.py")
-from .base import Base
+from .base import Base, DatabaseSession
 from sqlalchemy.orm import sessionmaker, relationship
 from sqlalchemy import Column, Integer, String, Text, Float, DateTime, ForeignKey, \
     Date, Boolean, Table
@@ -39,7 +39,13 @@ class Users(Base, UserMixin):
         except:
             return None
 
-        return sess.query(Users).get(user_id)
+        db_session = DatabaseSession()
+        try:
+            user = db_session.query(Users).get(user_id)
+        finally:
+            db_session.close()  # Ensure the session is closed after use
+
+        return user
 
     def __repr__(self):
         return f'Users(id: {self.id}, email: {self.email})'
