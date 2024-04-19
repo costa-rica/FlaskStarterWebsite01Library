@@ -20,4 +20,20 @@ new_engine = create_engine(new_engine_str)
 Base.metadata.create_all(new_engine)
 ```
 
+## Project Folder Structure 
+
+```
+.
+├── project_resources
+│   ├── assets
+│   │   ├── favicons
+│   │   └── images
+│   ├── blog
+│   │   └── posts
+│   ├── logs
+│   └── media
+└──  databases
+       ├── database.db
+       └── db_uploads
+```
 

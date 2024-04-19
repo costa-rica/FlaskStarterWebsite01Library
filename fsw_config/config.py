@@ -9,7 +9,7 @@ print(f"- FSW_CONFIG_TYPE: {os.environ.get('FSW_CONFIG_TYPE')}")
 print(f"- FLASK_DEBUG: {os.environ.get('FLASK_DEBUG')}")
 
 
-with open(os.path.join(os.environ.get('CONFIG_PATH'), os.environ.get('CONFIG_FILE_NAME'))) as config_json_file:
+with open(os.path.join(os.environ.get('CONFIG_ROOT'), os.environ.get('CONFIG_FILE_NAME'))) as config_json_file:
     # config_json_dict = json.load(env_file)
     config_json_dict = json.load(config_json_file)
         # os.environ["PROJECT_ROOT"] = "/Users/nick/Documents/exFlaskBlueprintFrameworkStarterWithLogin/"
@@ -46,14 +46,29 @@ class ConfigBasic():
         self.REGISTRATION_KEY =config_json_dict.get('REGISTRATION_KEY')
         self.BLS_API_URL = config_json_dict.get('BLS_API_URL')
 
-        # Auxiliary and directories
-        self.PROJECT_RESOURCES = os.environ.get('PROJECT_RESOURCES')
-        self.DIR_LOGS = os.path.join(self.PROJECT_RESOURCES,"logs")
-        self.WEBSITE_FILES = os.path.join(self.PROJECT_RESOURCES,"website_files")
-        self.DIR_WEBSITE_IMAGES = os.path.join(self.WEBSITE_FILES,"website_images")
-        self.DIR_WEBSITE_VIDEOS = os.path.join(self.WEBSITE_FILES,"website_videos")
-        self.DATABASE_HELPERS = os.path.join(self.PROJECT_RESOURCES,"database_helpers")
-        self.DB_UPLOAD = os.path.join(self.DATABASE_HELPERS,"db_upload")
+        # # Auxiliary and directories
+        # self.PROJECT_RESOURCES = os.environ.get('PROJECT_RESOURCES')
+        # self.DIR_LOGS = os.path.join(self.PROJECT_RESOURCES,"logs")
+        # self.WEBSITE_FILES = os.path.join(self.PROJECT_RESOURCES,"website_files")
+        # self.DIR_WEBSITE_IMAGES = os.path.join(self.WEBSITE_FILES,"website_images")
+        # self.DIR_WEBSITE_VIDEOS = os.path.join(self.WEBSITE_FILES,"website_videos")
+        # self.DATABASE_HELPERS = os.path.join(self.PROJECT_RESOURCES,"database_helpers")
+        # self.DB_UPLOAD = os.path.join(self.DATABASE_HELPERS,"db_upload")
+        
+        # DIR_DATABASE
+        self.DATABASE_ROOT = os.environ.get('DATABASE_ROOT')
+        self.DIR_DB_UPLOAD = os.path.join(self.DATABASE_ROOT,"db_upload")
+
+        # PROJECT_RESOURCES directories
+        self.PROJECT_RESOURCES_ROOT = os.environ.get('PROJECT_RESOURCES_ROOT')
+        self.DIR_ASSETS = os.path.join(self.PROJECT_RESOURCES_ROOT,"assets")# website files like icons, favicons, other images
+        self.DIR_ASSETS_IMAGES = os.path.join(self.DIR_ASSETS,"images")
+        self.DIR_ASSETS_FAVICONS = os.path.join(self.DIR_ASSETS,"favicons")
+        self.DIR_BLOG = os.path.join(self.PROJECT_RESOURCES_ROOT,"blog")
+        self.DIR_BLOG_POSTS = os.path.join(self.DIR_BLOG,"posts")# contains a folder for each posts, 
+        # which may contain subfolders such as word_docs, images, and/or videos
+        self.DIR_LOGS = os.path.join(self.PROJECT_RESOURCES_ROOT,"logs")# all .log files
+        self.DIR_MEDIA = os.path.join(self.PROJECT_RESOURCES_ROOT,"media")
 
         #Captcha
         self.SITE_KEY_CAPTCHA = config_json_dict.get('SITE_KEY_CAPTCHA')
