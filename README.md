@@ -1,6 +1,6 @@
 # Flask Starter Website Library
 
-![Flask and DashAndData Logo](https://venturer.dashanddata.com/get_aux_file_from_dir/images/dd_and_flask.png)
+![Flask and DashAndData Logo](https://venturer.dashanddata.com/website_assets_images/dd_and_flask_02-400x209.png)
 
 ## Description
 This library includes the fsw_config and the fsw_models packages. 
